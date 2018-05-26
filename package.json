@@ -1,0 +1,26 @@
+{
+  "name": "bindex",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start:client": "npm start --prefix ./client",
+    "start:server": "npm start --prefix ./server",
+    "install:all": "yarn && yarn install --cwd ./client && yarn install --cwd ./server",
+    "dist:all": "npm run dist:client && npm run dist:server",
+    "dist": "npm run install:all && npm run dist:all",
+    "dist:client": "npm run dist --prefix ./client",
+    "dist:server": "npm run dist --prefix ./server",
+    "debug:server": "npm run debug --prefix ./server"
+  },
+  "dependencies": {
+    "@nestjs/swagger": "^1.2.0",
+    "concurrently": "^3.5.1",
+    "mongoose": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^4.7.33",
+    "ts-jest": "^22.4.4",
+    "typescript": "^2.6.2"
+  }
+}

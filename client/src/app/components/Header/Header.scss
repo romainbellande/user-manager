@@ -1,0 +1,13 @@
+@import 'lib';
+
+.Header {
+  height: 50px;
+  border-bottom: 1px solid #e7e7e7;
+  font-family: 'Montserrat-Regular';
+  display: flex;
+  align-items: center;
+  font-size: rem(18);
+  color: $color__white;
+  justify-content: center;
+  background-color: $color__grey--dark;
+}

@@ -1,0 +1,11 @@
+.HomePage {
+  display: flex;
+  flex-flow: row nowrap;
+
+  &__wrapper {
+    width: calc(100% - 300px);
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+  }
+}

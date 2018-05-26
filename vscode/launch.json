@@ -1,0 +1,47 @@
+{
+  // Utilisez IntelliSense pour en savoir plus sur les attributs possibles.
+  // Pointez pour afficher la description des attributs existants.
+  // Pour plus d'informations, visitez : https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Server",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "start:server"
+      ],
+      "internalConsoleOptions": "neverOpen",
+      "cwd": "${workspaceRoot}",
+      "console": "integratedTerminal",
+      "address": "localhost",
+      "port": 5858
+    },
+    {
+      "name": "Client",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:9000",
+      "webRoot": "${workspaceRoot}",
+    },
+    {
+      "name": "Attach Chrome",
+      "type": "chrome",
+      "request": "attach",
+      "url": "http://localhost:9000",
+      "webRoot": "${workspaceRoot}",
+      "port": 9000
+    },
+    {
+      "name": "Launch Chrome (Test)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:9876/debug.html",
+      "webRoot": "${workspaceRoot}",
+      "port": 9876
+    },
+
+  ]
+}

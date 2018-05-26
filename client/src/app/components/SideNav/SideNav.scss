@@ -1,0 +1,76 @@
+@import 'lib';
+
+.SideNav {
+  height: 100%;
+  width: 300px;
+  background-color: $color__grey--dark;
+
+  &__logo {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-transform: uppercase;
+    border-bottom: 1px solid $color__grey;
+  }
+
+  &__add-content-type {
+    display: flex;
+    border-top: 1px solid $color__grey--dark;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .panel {
+    border: none;
+    margin-bottom: 0;
+    background-color: $color__grey;
+    color: $color__white;
+
+    &>.panel-heading {
+      padding: 0;
+      background-color: inherit;
+      border: 0;
+
+      .list-group-item {
+        border: 0;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+    }
+    .panel-body {
+      padding: 0;
+      border-right: 1px solid $color__grey--dark;
+
+      .list-group {
+        margin-bottom: 0;
+
+        .list-group-item {
+          height: 44px;
+          color: $color__black--light;
+          background-color: $color__grey--light;
+          border-radius: 0;
+          border-left: 0;
+          border-right: 0;
+          border-bottom: 1px solid $color__grey--dark;
+        }
+      }
+    }
+  }
+
+  .list-group-item {
+    text-transform: uppercase;
+    font-size: rem(12);
+    display: flex;
+    align-items: center;
+    background-color: $color__grey--dark;
+    color: $color__white;
+
+    .nav-text {
+      padding-left: rem(20);
+    }
+  }
+}

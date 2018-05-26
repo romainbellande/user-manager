@@ -1,0 +1,18 @@
+@import 'lib';
+
+a, button {
+  &.list-group-item {
+    background-color: transparent;
+    color: $color__white;
+    border-color: $color__grey;
+
+    &.active, &.active:focus, &.active:hover, &:hover {
+      background-color: $color__grey;
+      border-color: $color__grey;
+    }
+
+    &:hover {
+      color: $color__white;
+    }
+  }
+}

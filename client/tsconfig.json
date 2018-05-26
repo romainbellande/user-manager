@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "sourceMap": true,
+    "allowJs": true,
+    "outDir": "../server/dist/server/src/public",
+    "jsx": "react"
+  },
+  "include": [
+    "src/**/*",
+    "../common/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/**/**.spec.*"
+  ]
+}

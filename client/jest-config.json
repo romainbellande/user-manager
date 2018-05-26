@@ -1,0 +1,19 @@
+{
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.tsx?$",
+    "transform": {
+      "^.+\\.(t|j)s(x)?$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/styleMock.js"
+    }
+  }

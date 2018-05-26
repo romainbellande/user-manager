@@ -1,0 +1,70 @@
+version: '3'
+
+services:
+  client:
+    build:
+      context: '.'
+      dockerfile: './docker/development/client/Dockerfile'
+    environment:
+      HOSTNAME: 'client'
+      NODE_ENV: 'development'
+      HOST: '0.0.0.0'
+      SERVER_HOST: 'server'
+      SERVER_PORT: 3000
+    volumes:
+      - './client/src:/srv/app/client/src'
+      - './common:/srv/app/common'
+      - './client/e2e:/srv/app/client/e2e'
+    depends_on:
+      - server
+    ports:
+      - 9000:9000
+    networks:
+      - default
+
+  server:
+    build:
+      context: '.'
+      dockerfile: './docker/development/server/Dockerfile'
+    environment:
+      HOSTNAME: 'server'
+      NODE_ENV: 'development'
+      POSTGRES_HOST: 'postgres'
+      POSTGRES_PORT: 5432
+      POSTGRES_PASSWORD: 'postgres'
+    volumes:
+      - './common:/srv/app/common'
+      - './server/src:/srv/app/server/src'
+      - './server/e2e:/srv/app/server/e2e'
+    depends_on:
+      - postgres
+    ports:
+      - 3000:3000
+    networks:
+      - default
+
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      HOSTNAME: 'postgres'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'postgres'
+      POSTGRES_DB: 'renest'
+    volumes:
+      - './pgdata:/var/lib/postgresql/data'
+    ports:
+      - 8001:5432
+    networks:
+      - default
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+networks:
+  default:
+    driver: bridge
+

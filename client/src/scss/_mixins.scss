@@ -1,0 +1,42 @@
+@mixin media($min-query: null, $max-query: null) {
+  @if $min-query==null and $max-query==null {
+    @warn "Mixin k-media() received two null values; no output.";
+    @content; // Pass content anyway, but it won't be wrapped in a media query
+  }
+  @else if $max-query==null {
+    @media screen and (min-width: $min-query+0px) {
+      @content;
+    }
+  }
+  @else if $min-query==null {
+    @media screen and (max-width: $max-query+0px) {
+      @content;
+    }
+  }
+  @else {
+    @media screen and (min-width: $min-query+0px) and (max-width: $max-query+0px) {
+      @content;
+    }
+  }
+}
+
+@mixin media-above($min-query) {
+  @include media($min-query, null) {
+    @content;
+  }
+}
+
+@mixin media-below($max-query) {
+  @include media(null, $max-query - 1) {
+    @content;
+  }
+}
+
+@mixin media-between($min-query: null, $max-query: null) {
+  @if $min-query==null or $max-query==null {
+    @warn "Mixin media-between() received a null value.";
+  }
+  @include media($min-query, $max-query - 1) {
+    @content;
+  }
+}
