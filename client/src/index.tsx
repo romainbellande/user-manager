@@ -1,3 +1,5 @@
+// Styles
+
 import './styles.scss';
 
 import 'hammerjs';

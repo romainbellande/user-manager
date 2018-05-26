@@ -12,7 +12,10 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js', '.svg'],
+    alias: {
+      '@': path.resolve('src')
+    },
   },
   module: {
     rules: [
@@ -28,6 +31,20 @@ module.exports = {
           path.resolve('../server/src/modules'),
           path.resolve('../common')
         ],
+      },
+      /**
+       * File loader for supporting images, for example, in CSS files.
+       */
+      {
+        test: /\.(jpg|png|gif)$/,
+        use: 'file-loader',
+      },
+
+      /* File loader for supporting fonts, for example, in CSS files.
+      */
+      {
+        test: /\.(eot|woff2?|svg|ttf)([\?]?.*)$/,
+        use: 'file-loader',
       },
     ]
   },

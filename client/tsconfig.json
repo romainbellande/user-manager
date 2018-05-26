@@ -11,7 +11,11 @@
     "sourceMap": true,
     "allowJs": true,
     "outDir": "../server/dist/server/src/public",
-    "jsx": "react"
+    "jsx": "react",
+    "lib": [
+      "es2015",
+      "dom"
+    ]
   },
   "include": [
     "src/**/*",

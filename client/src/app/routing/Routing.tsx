@@ -8,6 +8,7 @@ import { IStore } from '../redux';
 import { IAuthState } from '../redux/auth';
 import { PrivateRoute } from '../components';
 import { HomePage, LoginPage, RegisterPage } from '../pages';
+import { DefaultLayout } from '../containers/DefaultLayout';
 
 interface IProps {
   auth?: IAuthState;
@@ -25,9 +26,9 @@ export class Routing extends React.Component<IProps, {}> {
   public render() {
     return (
       <ConnectedSwitch>
-        <Route path="/login" component={LoginPage} />
-        <Route path="/register" component={RegisterPage} />
-        <Route path="/" component={HomePage} />
+        <Route path="/login" component={LoginPage}/>
+        {/* <Route path="/register" component={RegisterPage} /> */}
+        <Route path="/" component={DefaultLayout} />
         {/* <PrivateRoute path="/" component={HomePage} isAuth={this.props.auth.token} /> */}
       </ConnectedSwitch>
     );

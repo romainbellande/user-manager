@@ -6,6 +6,7 @@ import { Redirect, RouteComponentProps } from 'react-router-dom';
 import { push } from 'react-router-redux';
 const { connect } = require('react-redux');
 const { withRouter } = require('react-router-dom');
+import { Button, Card, CardBody, CardGroup, Col, Container, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 
 import { IStore } from '../../redux';
 import { Validators } from '../../lib';
@@ -42,13 +43,27 @@ export class LoginPage extends React.Component<ILoginPage, {}> {
   }
   public render() {
     return (
-      <section className="LoginPage page">
-        <Form
-          validateError={this.errorValidator}
-          onSubmit={this.onSubmit}
-        >
-          {this.renderForm}
-        </Form>
+      <section className="LoginPage app flex-row align-items-center">
+        <Container>
+          <Row className="justify-content-center">
+            <Col sm="8" md="6">
+              <CardGroup>
+                <Card className="p-4">
+                  <CardBody>
+                    <h1>Login</h1>
+                    <p className="text-muted">Sign In to your account</p>
+                    <Form
+                      validateError={this.errorValidator}
+                      onSubmit={this.onSubmit}
+                    >
+                      {this.renderForm}
+                    </Form>
+                  </CardBody>
+                </Card>
+              </CardGroup>
+            </Col>
+          </Row>
+        </Container>
         {this.redirect()}
       </section>
     );
@@ -58,14 +73,24 @@ export class LoginPage extends React.Component<ILoginPage, {}> {
     return (
       <form className="LoginPage__form" onSubmit={formApi.submitForm}>
         <div className="form-group">
-          <label htmlFor="login-email">Email</label>
-          <Text id="login-email" type="email" className="form-control" field="email"/>
-          <small className="form-text text-muted">We'll never share your email with anyone else.</small>
+          <InputGroup className="mb-3">
+            <InputGroupAddon addonType="prepend">
+              <InputGroupText>
+                <i className="icon-envelope"></i>
+              </InputGroupText>
+            </InputGroupAddon>
+            <Text id="login-email" type="email" className="form-control" field="email" placeholder="Email"/>
+          </InputGroup>
         </div>
         <div className="form-group">
-          <label htmlFor="login-password">Password</label>
-          <Text id="login-password" type="password" className="form-control" field="password" />
-          <small className="form-text text-muted">We'll never share your email with anyone else.</small>
+          <InputGroup className="mb-3">
+            <InputGroupAddon addonType="prepend">
+              <InputGroupText>
+                <i className="icon-lock"></i>
+              </InputGroupText>
+            </InputGroupAddon>
+            <Text id="login-password" type="password" className="form-control" field="password" placeholder="Password"/>
+          </InputGroup>
         </div>
         <button type="submit" className="btn btn-primary">Login</button>
       </form>

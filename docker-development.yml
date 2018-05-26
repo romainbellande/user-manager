@@ -1,26 +1,26 @@
 version: '3'
 
 services:
-  client:
-    build:
-      context: '.'
-      dockerfile: './docker/development/client/Dockerfile'
-    environment:
-      HOSTNAME: 'client'
-      NODE_ENV: 'development'
-      HOST: '0.0.0.0'
-      SERVER_HOST: 'server'
-      SERVER_PORT: 3000
-    volumes:
-      - './client/src:/srv/app/client/src'
-      - './common:/srv/app/common'
-      - './client/e2e:/srv/app/client/e2e'
-    depends_on:
-      - server
-    ports:
-      - 9000:9000
-    networks:
-      - default
+  # client:
+  #   build:
+  #     context: '.'
+  #     dockerfile: './docker/development/client/Dockerfile'
+  #   environment:
+  #     HOSTNAME: 'client'
+  #     NODE_ENV: 'development'
+  #     HOST: '0.0.0.0'
+  #     SERVER_HOST: 'server'
+  #     SERVER_PORT: 3000
+  #   volumes:
+  #     - './client/src:/srv/app/client/src'
+  #     - './common:/srv/app/common'
+  #     - './client/e2e:/srv/app/client/e2e'
+  #   depends_on:
+  #     - server
+  #   ports:
+  #     - 9000:9000
+  #   networks:
+  #     - default
 
   server:
     build:
@@ -50,7 +50,7 @@ services:
       HOSTNAME: 'postgres'
       POSTGRES_USER: 'postgres'
       POSTGRES_PASSWORD: 'postgres'
-      POSTGRES_DB: 'renest'
+      POSTGRES_DB: 'user-manager'
     volumes:
       - './pgdata:/var/lib/postgresql/data'
     ports:
