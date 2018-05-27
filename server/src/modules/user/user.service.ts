@@ -1,4 +1,3 @@
-import { Model } from 'mongoose';
 import { Component, Inject, Body, Param, HttpException, HttpStatus } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { validate } from 'class-validator';

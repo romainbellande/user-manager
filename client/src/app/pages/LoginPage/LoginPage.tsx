@@ -98,6 +98,7 @@ export class LoginPage extends React.Component<ILoginPage, {}> {
   }
 
   public redirect() {
+    console.log('auth token ?', this.props.auth.token);
     return !!this.props.auth.token ? <Redirect to="/" /> : null;
   }
 }
